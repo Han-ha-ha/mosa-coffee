@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>墨上咖啡 Mosa Coffee | 精品手冲 · 咖啡培训</title>
+<meta name="description" content="墨上咖啡 Mosa Coffee — 专注于手冲单品、精品拼配与专业咖啡培训的高端咖啡品牌。让时间有味道。">
+<link rel="stylesheet" href="css/style.css?v=2">
+<style>
+/* ===== Hero (首页专属) ===== */
+.hero {
+  min-height: 100vh; display:flex; align-items:center;
+  position: relative; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset:0;
+  background:
+    url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1600&q=80&auto=format&fit=crop') center/cover no-repeat;
+}
+.hero-bg::after {
+  content: ''; position: absolute; inset:0;
+  background:
+    radial-gradient(ellipse at 80% 50%, rgba(200,169,110,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(139,115,85,0.04) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(15,12,9,0.88) 0%, rgba(26,16,16,0.82) 25%, rgba(44,31,20,0.78) 50%, rgba(26,20,16,0.85) 75%, rgba(15,12,9,0.9) 100%);
+}
+.hero-pattern {
+  position: absolute; inset:0; opacity:0.03;
+  background: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(200,169,110,0.4) 2px, rgba(200,169,110,0.4) 4px);
+}
+.hero-accent {
+  position: absolute; right:-5%; top:50%; transform:translateY(-50%);
+  width: 50%; height: 80%;
+  background:
+    radial-gradient(ellipse at center, rgba(200,169,110,0.12) 0%, transparent 70%),
+    linear-gradient(180deg, rgba(44,34,24,0.8) 0%, rgba(26,20,16,0.4) 100%);
+  mask-image: linear-gradient(to left, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+}
+.hero-content {
+  position: relative; z-index:2;
+  width: var(--content-width); margin:0 auto;
+  padding: 8rem 0 4rem;
+}
+.hero-eyebrow {
+  display:inline-block; font-size: 0.8rem; letter-spacing:0.15em;
+  color: var(--gold); text-transform: uppercase;
+  margin-bottom: 1.5rem; font-weight: 500;
+}
+.hero-title { color: var(--cream); margin-bottom: 1.5rem; max-width: 700px; }
+.hero-title em { font-style: italic; color: var(--gold); }
+.hero-desc {
+  color: var(--brown-200); font-size: clamp(1rem, 1.5vw, 1.2rem);
+  max-width: 480px; margin-bottom: 2.5rem; font-weight: 300; line-height: 1.8;
+}
+.hero-buttons { display:flex; gap:1rem; flex-wrap:wrap; }
+.hero-scroll {
+  position: absolute; bottom:2rem; left:50%; transform:translateX(-50%);
+  color: var(--brown-400); font-size: 0.75rem; letter-spacing:0.1em;
+  animation: float 2s ease-in-out infinite; text-decoration: none; cursor: pointer;
+}
+@keyframes float {
+  0%,100% { transform:translateX(-50%) translateY(0); }
+  50% { transform:translateX(-50%) translateY(-8px); }
+}
+
+/* ===== 品牌三行 ===== */
+.belief { background: var(--white); text-align:center; }
+.belief blockquote {
+  max-width: 680px; margin:0 auto;
+  font-family: Georgia, 'Times New Roman', '宋体', serif;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  color: var(--brown-600); line-height: 2;
+  font-style: italic;
+}
+
+/* ===== 精选豆单 ===== */
+.featured-beans { background: var(--cream); }
+.bean-card {
+  background: var(--white); border: 1px solid var(--brown-200);
+  padding: 2rem; transition: var(--transition); text-align: center;
+}
+.bean-card:hover { border-color: var(--gold); transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.08); }
+.bean-visual {
+  width: 100%; aspect-ratio: 1; max-width: 200px; margin:0 auto 1.5rem;
+  border-radius: 50%; position: relative; overflow: hidden;
+  background-size: cover; background-position: center;
+}
+.bean-visual::after {
+  content: ''; position: absolute; inset:0;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgba(200,169,110,0.2), inset 0 0 0 4px rgba(255,255,255,0.3);
+}
+.bean-visual.v1 { background-image: url('https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&q=80'); }
+.bean-visual.v2 { background-image: url('https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?w=400&q=80'); }
+.bean-visual.v3 { background-image: url('https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?w=400&q=80'); }
+.bean-name { font-family: Georgia, 'Times New Roman', serif; font-size: 1.2rem; font-weight:600; color: var(--brown-900); margin-bottom:0.3rem; }
+.bean-origin { font-size:0.8rem; color: var(--gold-dark); letter-spacing:0.06em; margin-bottom:0.8rem; text-transform:uppercase; }
+.bean-notes { font-size:0.9rem; color: var(--text-muted); line-height:1.7; }
+.bean-price { font-family: Georgia, serif; font-size: 1.3rem; color: var(--gold-dark); margin-top:1rem; font-weight:600; }
+
+/* ===== 学堂预览 ===== */
+.edu-preview { background: var(--brown-900); color: var(--cream); position:relative; overflow:hidden; text-align:center; }
+.edu-preview::before {
+  content: ''; position: absolute; inset:0; opacity:0.03;
+  background: radial-gradient(circle at 50% 50%, rgba(200,169,110,0.3) 0%, transparent 70%);
+}
+.edu-features {
+  display: flex; gap:3rem; justify-content:center; flex-wrap:wrap;
+  margin: 3rem 0; position: relative; z-index:1;
+}
+.edu-feature {
+  text-align: center;
+}
+.edu-feature-icon { font-size: 3rem; margin-bottom: 1rem; }
+.edu-feature-label { color: var(--brown-300); font-size: 0.9rem; }
+
+/* ===== 空间预览 ===== */
+.space-preview .space-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top:3rem;
+}
+.space-main {
+  grid-row: span 2; aspect-ratio: 3/4; max-height: 500px;
+}
+.space-side { aspect-ratio: 4/3; }
+@media (max-width: 768px) {
+  .hero-content { padding: 6rem 0 3rem; }
+  .space-preview .space-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">MOSA<span>COFFEE</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">首页</a></li>
+      <li><a href="about.html">关于墨上</a></li>
+      <li><a href="menu.html">精品菜单</a></li>
+      <li><a href="courses.html">咖啡学院</a></li>
+      <li><a href="contact.html" class="nav-cta">预约体验</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-accent parallax" data-speed="0.1"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow fade-up">MOSA COFFEE · 墨上咖啡</p>
+    <h1 class="hero-title display fade-up">用一杯咖啡的时间<br>抵达自己的<em>精神角落</em></h1>
+    <p class="hero-desc fade-up">
+      精选全球 12 个产区的高分豆源，由 SCA 认证烘焙师小批量烘焙。
+      从手冲单品的纯粹，到创意拼配的层次——每一杯，都是一次风味探索。
+    </p>
+    <div class="hero-buttons fade-up">
+      <a href="menu.html" class="btn btn-primary">探索菜单</a>
+      <a href="courses.html" class="btn btn-outline">了解课程</a>
+    </div>
+  </div>
+  <a class="hero-scroll" onclick="document.getElementById('belief').scrollIntoView({behavior:'smooth'})">⌄ 向下探索</a>
+</section>
+
+<!-- 品牌三行 -->
+<section class="section belief" id="belief">
+  <div class="section-inner">
+    <span class="section-label">Our Belief</span>
+    <blockquote class="fade-up">
+      "做墨上，是因为我们自己就想找一个地方：<br>不太吵，不太快，咖啡是认认真真冲的。<br>找不到，就做了一个。你来，我们慢慢喝一杯。"
+    </blockquote>
+  </div>
+</section>
+
+<!-- 精选豆单 -->
+<section class="section featured-beans">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">精选豆单</span>
+      <h2 class="heading-1 section-title fade-up">每一支豆子，都有自己的故事</h2>
+      <p class="section-desc fade-up">按 SCA 标准杯测，只呈现风味评分 84 分以上的精品咖啡</p>
+    </div>
+    <div class="grid-3 fade-up">
+      <a href="menu.html" style="text-decoration:none;color:inherit;">
+        <div class="bean-card">
+          <div class="bean-visual v1"></div>
+          <div class="bean-name">耶加雪菲 · 果丁丁</div>
+          <div class="bean-origin">埃塞俄比亚 · 水洗 · 浅烘</div>
+          <div class="bean-notes">柑橘、茉莉花、蜂蜜<br>酸质明亮如日出</div>
+          <div class="bean-price">¥48</div>
+        </div>
+      </a>
+      <a href="menu.html" style="text-decoration:none;color:inherit;">
+        <div class="bean-card">
+          <div class="bean-visual v2"></div>
+          <div class="bean-name">翡翠庄园 · 瑰夏</div>
+          <div class="bean-origin">巴拿马 · 日晒 · 浅烘</div>
+          <div class="bean-notes">佛手柑、桃子、茉莉<br>余韵悠长如一首诗</div>
+          <div class="bean-price">¥168</div>
+        </div>
+      </a>
+      <a href="menu.html" style="text-decoration:none;color:inherit;">
+        <div class="bean-card">
+          <div class="bean-visual v3"></div>
+          <div class="bean-name">墨上·晨曦拼配</div>
+          <div class="bean-origin">埃塞 + 危地马拉 · 中烘</div>
+          <div class="bean-notes">莓果、坚果、黑巧克力<br>经典意式基底</div>
+          <div class="bean-price">¥38</div>
+        </div>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:3rem;" class="fade-up">
+      <a href="menu.html" class="btn btn-outline-dark">查看完整菜单 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- 学堂预览 -->
+<section class="section edu-preview">
+  <div class="section-inner" style="position:relative;z-index:1;">
+    <span class="section-label">墨上学堂</span>
+    <h2 class="heading-1 section-title fade-up" style="color:var(--cream);">从爱好者到咖啡师</h2>
+    <p class="section-desc fade-up" style="color:var(--brown-300);margin:0 auto;">SCA 认证导师授课，小班教学，一人一机实操</p>
+    <div class="edu-features fade-up">
+      <div class="edu-feature">
+        <div class="edu-feature-icon">☕</div>
+        <div class="edu-feature-label">入门品鉴课<br><small style="color:var(--gold);">¥298 / 3小时</small></div>
+      </div>
+      <div class="edu-feature">
+        <div class="edu-feature-icon">🔬</div>
+        <div class="edu-feature-label">手冲进阶课<br><small style="color:var(--gold);">¥580 / 6小时</small></div>
+      </div>
+      <div class="edu-feature">
+        <div class="edu-feature-icon">🎖️</div>
+        <div class="edu-feature-label">SCA 认证课程<br><small style="color:var(--gold);">¥3,980 / 5天</small></div>
+      </div>
+    </div>
+    <a href="courses.html" class="btn btn-outline fade-up">了解课程详情</a>
+  </div>
+</section>
+
+<!-- 空间预览 -->
+<section class="section space-preview">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">空间氛围</span>
+      <h2 class="heading-1 section-title fade-up">在城市的缝隙里，安放一段慢时光</h2>
+      <p class="section-desc fade-up">东方禅意与现代极简交织，让你愿意在这里坐一个下午</p>
+    </div>
+    <div class="space-grid">
+      <div class="space-main img-placeholder has-img fade-up" style="background-image: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&q=80&auto=format&fit=crop'); background-size:cover; background-position:center;"></div>
+      <div class="space-side img-placeholder-light has-img fade-up" style="background-image: url('https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600&q=80&auto=format&fit=crop'); background-size:cover; background-position:center;"></div>
+      <div class="space-side img-placeholder-light has-img fade-up" style="background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80&auto=format&fit=crop'); background-size:cover; background-position:center;"></div>
+    </div>
+    <div style="text-align:center;margin-top:3rem;" class="fade-up">
+      <a href="about.html" class="btn btn-outline-dark">了解更多 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">MOSA<span>COFFEE</span></div>
+        <p class="footer-desc">墨上咖啡，用一杯咖啡的时间抵达自己的精神角落。专注精品手冲、创意拼配与专业咖啡培训。</p>
+        <div class="footer-social">
+          <a href="#" title="小红书">红</a>
+          <a href="#" title="微信公众号">微</a>
+          <a href="#" title="Instagram">IG</a>
+          <a href="#" title="大众点评">评</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>导航</h4>
+        <a href="index.html">首页</a>
+        <a href="about.html">关于墨上</a>
+        <a href="menu.html">精品菜单</a>
+        <a href="courses.html">咖啡学院</a>
+        <a href="contact.html">预约体验</a>
+      </div>
+      <div class="footer-col">
+        <h4>课程</h4>
+        <a href="courses.html">入门品鉴</a>
+        <a href="courses.html">手冲进阶</a>
+        <a href="courses.html">SCA 认证</a>
+        <a href="courses.html">企业团建</a>
+      </div>
+      <div class="footer-col">
+        <h4>联系</h4>
+        <a href="contact.html">门店地址</a>
+        <a href="contact.html">在线预约</a>
+        <a href="contact.html">合作咨询</a>
+        <a href="#">加入我们</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Mosa Coffee 墨上咖啡. All rights reserved.</span>
+      <span>京ICP备 2024XXXXXXXX号</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+<script src="js/main.js"></script>
+</body>
+</html>

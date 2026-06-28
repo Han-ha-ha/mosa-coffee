@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>关于墨上 | 墨上咖啡 Mosa Coffee</title>
+<meta name="description" content="墨上咖啡的品牌故事——始于2018年北京，专注于精品手冲咖啡与专业咖啡培训。以克制表达丰盛。">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .story-text p { color: var(--text-secondary); font-size: 1rem; line-height: 2; margin-bottom: 1.5rem; }
+  .stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; padding: 3rem 0; border-top: 1px solid var(--brown-200); border-bottom: 1px solid var(--brown-200); margin: 3rem 0; }
+  .stat-num { font-family: Georgia, serif; font-size: 2.5rem; color: var(--gold-dark); font-weight: 600; line-height: 1; }
+  .stat-lbl { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; }
+  .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
+  .value-card { text-align: center; padding: 2.5rem 1.5rem; }
+  .value-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+  .value-title { font-family: Georgia, serif; font-size: 1.1rem; color: var(--brown-900); margin-bottom: 0.8rem; font-weight: 600; }
+  .value-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.8; }
+  .timeline { position: relative; max-width: 600px; margin: 3rem auto 0; }
+  .timeline::before { content: ''; position: absolute; left: 20px; top:0; bottom:0; width: 1px; background: var(--brown-200); }
+  .tl-item { position: relative; padding-left: 50px; margin-bottom: 2rem; }
+  .tl-dot { position: absolute; left: 14px; top: 4px; width: 13px; height: 13px; border-radius: 50%; background: var(--gold); border: 2px solid var(--white); }
+  .tl-year { font-family: Georgia, serif; font-size: 1.1rem; color: var(--gold-dark); font-weight: 600; }
+  .tl-text { font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.3rem; }
+  @media (max-width: 768px) {
+    .stats-bar { grid-template-columns: repeat(2, 1fr); gap:1.5rem; }
+    .values-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">MOSA<span>COFFEE</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="about.html" class="active">关于墨上</a></li>
+      <li><a href="menu.html">精品菜单</a></li>
+      <li><a href="courses.html">咖啡学院</a></li>
+      <li><a href="contact.html" class="nav-cta">预约体验</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Page Hero -->
+<section class="page-hero bg-coffee-texture" style="position:relative;">
+  <div class="page-hero-img" style="background-image: url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1400&q=80&auto=format&fit=crop');"></div>
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-content">
+    <p class="hero-eyebrow fade-up">About Mosa</p>
+    <h1 class="heading-1 hero-title fade-up">关于墨上</h1>
+    <p class="hero-desc fade-up">不止于一杯好咖啡——以克制表达丰盛</p>
+  </div>
+</section>
+
+<!-- 品牌故事 -->
+<section class="section" style="background:var(--white);">
+  <div class="section-inner">
+    <div class="grid-2">
+      <div class="img-placeholder has-img fade-up" style="aspect-ratio:4/5; max-height:500px; background-image: url('https://images.unsplash.com/photo-1504630083234-14187a9df0f5?w=700&q=80'); background-size:cover; background-position:center;"></div>
+      <div class="story-text">
+        <span class="section-label">品牌故事</span>
+        <h2 class="heading-2 fade-up" style="margin-bottom:1.5rem;">做墨上，是因为我们自己就想找一个地方</h2>
+        <p class="fade-up">2018 年，三个咖啡爱好者在三里屯的一条小巷里，租下一个 40 平米的小铺。没有网红墙，没有打卡点，只有一台 La Marzocco，一架子挑来的豆子，和一张手写菜单。</p>
+        <p class="fade-up">我们相信咖啡是一种媒介——连接人与风味，也连接人与自己。「墨」取沉静之意，「上」为追求之心。墨上，就是以沉静的态度，追求一杯好咖啡的上限。</p>
+        <p class="fade-up">六年过去，我们依然在那条巷子里。只是豆子从 6 支变成了 30 多支，咖啡师从 3 人变成了 15 人，还多了一个咖啡学院。但那张手写菜单的精神没变——每一支豆子，都是我们喝过、挑过、觉得「这杯值得」之后，才端到你面前的。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 数据 -->
+<div class="section-inner">
+  <div class="stats-bar fade-up">
+    <div><div class="stat-num">12+</div><div class="stat-lbl">全球合作产区</div></div>
+    <div><div class="stat-num">30+</div><div class="stat-lbl">精选单品豆款</div></div>
+    <div><div class="stat-num">2,000+</div><div class="stat-lbl">咖啡学院学员</div></div>
+    <div><div class="stat-num">6</div><div class="stat-lbl">年坚持手冲</div></div>
+  </div>
+</div>
+
+<!-- 品牌价值观 -->
+<section class="section bg-paper">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">品牌价值观</span>
+      <h2 class="heading-1 section-title fade-up">克制的讲究</h2>
+      <p class="section-desc fade-up">自己知道什么是好的，就够了</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card card fade-up">
+        <div class="value-icon">🌱</div>
+        <div class="value-title">溯源 · Traceability</div>
+        <div class="value-desc">每一支豆子都可追溯到具体的庄园和处理站。我们相信透明不是营销话术，是对土地和农人的尊重。</div>
+      </div>
+      <div class="value-card card fade-up">
+        <div class="value-icon">🔥</div>
+        <div class="value-title">烘焙 · Roasting</div>
+        <div class="value-desc">小批量烘焙，每批不超过 5 公斤。曲线精确到每一度，风味调校到我们觉得「对了」才出货。</div>
+      </div>
+      <div class="value-card card fade-up">
+        <div class="value-icon">🎓</div>
+        <div class="value-title">分享 · Sharing</div>
+        <div class="value-desc">好咖啡不该有门槛。我们的课程不为培养专家，而为让更多人能喝懂自己杯中的风味。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 发展历程 -->
+<section class="section" style="background:var(--white);">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">发展历程</span>
+      <h2 class="heading-1 section-title fade-up">六年，一杯一杯走过来</h2>
+    </div>
+    <div class="timeline fade-up">
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2018</div><div class="tl-text">三里屯小巷，40平米小店开业。只有 6 支豆子和一张手写菜单。</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2019</div><div class="tl-text">引入 SCA 认证烘焙师，建立自主烘焙体系。</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2020</div><div class="tl-text">墨上咖啡学院成立，首期手冲课招满只用了一周。</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2022</div><div class="tl-text">第二家门店开业。推出「豆源溯源计划」，每支豆子可查庄园档案。</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2024</div><div class="tl-text">累计学员突破 2000 人。筹备上海、杭州新店。</div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">MOSA<span>COFFEE</span></div>
+        <p class="footer-desc">墨上咖啡，用一杯咖啡的时间抵达自己的精神角落。</p>
+        <div class="footer-social">
+          <a href="#">红</a><a href="#">微</a><a href="#">IG</a><a href="#">评</a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>导航</h4><a href="index.html">首页</a><a href="about.html">关于墨上</a><a href="menu.html">精品菜单</a><a href="courses.html">咖啡学院</a><a href="contact.html">预约体验</a></div>
+      <div class="footer-col"><h4>课程</h4><a href="courses.html">入门品鉴</a><a href="courses.html">手冲进阶</a><a href="courses.html">SCA 认证</a><a href="courses.html">企业团建</a></div>
+      <div class="footer-col"><h4>联系</h4><a href="contact.html">门店地址</a><a href="contact.html">在线预约</a><a href="contact.html">合作咨询</a><a href="#">加入我们</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2024 Mosa Coffee 墨上咖啡. All rights reserved.</span><span>京ICP备 2024XXXXXXXX号</span></div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+<script src="js/main.js"></script>
+</body>
+</html>

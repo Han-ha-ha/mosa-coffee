@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>精品菜单 | 墨上咖啡 Mosa Coffee</title>
+<meta name="description" content="墨上咖啡精品菜单——手冲单品、精品拼配、创意特调。SCA评分84+，12个产区直采，小批量烘焙。">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .menu-filters { display:flex; justify-content:center; gap:2rem; margin-bottom:3rem; flex-wrap:wrap; }
+  .menu-cat {
+    background:none; border:none; cursor:pointer;
+    font-family: inherit; font-size: 0.9rem;
+    color: var(--text-muted); padding: 0.5rem 0;
+    letter-spacing: 0.05em; transition: var(--transition); position: relative;
+  }
+  .menu-cat::after {
+    content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 0; height: 1px; background: var(--gold); transition: var(--transition);
+  }
+  .menu-cat:hover, .menu-cat.active { color: var(--brown-900); }
+  .menu-cat:hover::after, .menu-cat.active::after { width: 60%; }
+  .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 2rem; }
+  .menu-item {
+    background: var(--white); border: 1px solid var(--brown-200);
+    padding: 2rem; transition: var(--transition); position: relative; overflow: hidden;
+  }
+  .menu-item:hover { border-color: var(--gold); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.06); }
+  .menu-item-header { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:0.8rem; }
+  .menu-item-name { font-family: Georgia, serif; font-size: 1.2rem; font-weight: 600; color: var(--brown-900); }
+  .menu-item-price { font-family: Georgia, serif; font-size: 1.1rem; color: var(--gold-dark); font-weight: 600; }
+  .menu-item-desc { font-size: 0.9rem; color: var(--text-muted); line-height:1.7; margin-bottom:0.8rem; }
+  .menu-item-tags { display:flex; gap:0.5rem; flex-wrap:wrap; }
+  .menu-tag { font-size: 0.7rem; padding: 0.2rem 0.7rem; letter-spacing: 0.05em; border: 1px solid var(--brown-200); color: var(--brown-400); }
+  .menu-item-origin {
+    position: absolute; top:0; right:0;
+    background: var(--gold); color: var(--brown-900);
+    font-size: 0.7rem; padding: 0.3rem 0.8rem; letter-spacing: 0.05em; font-weight: 500;
+  }
+  .menu-note {
+    background: var(--cream); border-left: 3px solid var(--gold);
+    padding: 1.5rem 2rem; margin-top: 4rem;
+    font-size: 0.9rem; color: var(--text-secondary); line-height: 1.8;
+  }
+  .menu-note strong { color: var(--brown-900); }
+  @media (max-width: 768px) { .menu-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">MOSA<span>COFFEE</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="about.html">关于墨上</a></li>
+      <li><a href="menu.html" class="active">精品菜单</a></li>
+      <li><a href="courses.html">咖啡学院</a></li>
+      <li><a href="contact.html" class="nav-cta">预约体验</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle" aria-label="菜单"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-hero bg-coffee-texture" style="position:relative;">
+  <div class="page-hero-img" style="background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1400&q=80&auto=format&fit=crop');"></div>
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-content">
+    <p class="hero-eyebrow fade-up">Our Menu</p>
+    <h1 class="heading-1 hero-title fade-up">精品菜单</h1>
+    <p class="hero-desc fade-up">每一支豆子都是一段风土。我们选豆的标准只有一条——冲出来好喝，喝完还想再来一杯。</p>
+  </div>
+</section>
+
+<section class="section" style="background:var(--white);">
+  <div class="section-inner">
+    <div class="menu-filters fade-up">
+      <button class="menu-cat active" data-cat="all">全部</button>
+      <button class="menu-cat" data-cat="single">手冲单品</button>
+      <button class="menu-cat" data-cat="blend">精品拼配</button>
+      <button class="menu-cat" data-cat="special">创意特调</button>
+    </div>
+
+    <div class="menu-grid">
+      <!-- 手冲单品 -->
+      <div class="menu-item fade-up" data-cat="single">
+        <div class="menu-item-origin">埃塞俄比亚</div>
+        <div class="menu-item-header"><div class="menu-item-name">耶加雪菲 · 果丁丁</div><div class="menu-item-price">¥48</div></div>
+        <div class="menu-item-desc">水洗处理 · 浅度烘焙。柑橘、茉莉花、蜂蜜，酸质明亮干净如日出。口感轻盈，回甘持久，是最受欢迎的入门单品。</div>
+        <div class="menu-item-tags"><span class="menu-tag">花香型</span><span class="menu-tag">经典款</span><span class="menu-tag">人气TOP1</span></div>
+      </div>
+
+      <div class="menu-item fade-up" data-cat="single">
+        <div class="menu-item-origin">巴拿马</div>
+        <div class="menu-item-header"><div class="menu-item-name">翡翠庄园 · 瑰夏</div><div class="menu-item-price">¥168</div></div>
+        <div class="menu-item-desc">日晒处理 · 浅度烘焙。佛手柑、桃子、茉莉花茶，风味层次丰富，余韵悠长。BOP 获奖庄园出品，限量供应。</div>
+        <div class="menu-item-tags"><span class="menu-tag">限量</span><span class="menu-tag">BOP获奖</span><span class="menu-tag">收藏级</span></div>
+      </div>
+
+      <div class="menu-item fade-up" data-cat="single">
+        <div class="menu-item-origin">哥伦比亚</div>
+        <div class="menu-item-header"><div class="menu-item-name">慧兰 · 粉波旁</div><div class="menu-item-price">¥52</div></div>
+        <div class="menu-item-desc">水洗处理 · 中浅烘焙。焦糖、红苹果、可可碎，甜感圆润饱满，酸质柔和。适合不喜欢太酸的人。</div>
+        <div class="menu-item-tags"><span class="menu-tag">甜感型</span><span class="menu-tag">柔和</span></div>
+      </div>
+
+      <div class="menu-item fade-up" data-cat="single">
+        <div class="menu-item-origin">肯尼亚</div>
+        <div class="menu-item-header"><div class="menu-item-name">涅里 · AA TOP</div><div class="menu-item-price">¥55</div></div>
+        <div class="menu-item-desc">水洗处理 · 浅度烘焙。黑加仑、乌梅、番茄，果汁感饱满，酸质明亮活泼。肯尼亚的经典风味表达。</div>
+        <div class="menu-item-tags"><span class="menu-tag">果酸型</span><span class="menu-tag">人气款</span></div>
+      </div>
+
+      <div class="menu-item fade-up" data-cat="single">
+        <div class="menu-item-origin">印度尼西亚</div>
+        <div class="menu-item-header"><div class="menu-item-name">苏门答腊 · 曼特宁</div><div class="menu-item-price">¥45</div></div>
+        <div class="menu-item-desc">湿刨法 · 中深烘焙。黑巧克力、香料、雪松木，醇厚低沉，几乎没有酸质。老派咖啡爱好者的首选。</div>
+        <div class="menu-item-tags"><span class="menu-tag">醇厚型</span><span class="menu-tag">低酸</span></div>
+      </div>
+
+      <!-- 精品拼配 -->
+      <div class="menu-item fade-up" data-cat="blend">
+        <div class="menu-item-header"><div class="menu-item-name">墨上·晨曦拼配</div><div class="menu-item-price">¥38</div></div>
+        <div class="menu-item-desc">埃塞俄比亚 + 危地马拉。中度烘焙。莓果、坚果、黑巧克力。经典意式基底，做拿铁和美式都出色。</div>
+        <div class="menu-item-tags"><span class="menu-tag">意式</span><span class="menu-tag">招牌</span><span class="menu-tag">奶咖推荐</span></div>
+      </div>
+
+      <div class="menu-item fade-up" data-cat="blend">
+        <div class="menu-item-header"><div class="menu-item-name">暮光·SOE限定</div><div class="menu-item-price">¥42</div></div>
+        <div class="menu-item-desc">巴西达特拉庄园单一产地。中深烘焙。奶油、榛子、焦糖饼干，醇厚绵长。单喝浓缩或做奶咖都极佳。</div>
+        <div class="menu-item-tags"><span class="menu-tag">SOE</span><span class="menu-tag">限定</span></div>
+      </div>
+
+      <!-- 创意特调 -->
+      <div class="menu-item fade-up" data-cat="special">
+        <div class="menu-item-header"><div class="menu-item-name">墨·Dirty</div><div class="menu-item-price">¥35</div></div>
+        <div class="menu-item-desc">冰博克提纯乳 + 晨曦拼配浓缩。三层分明：热浓缩穿透冰乳的瞬间，一口从苦喝到甜。</div>
+        <div class="menu-item-tags"><span class="menu-tag">招牌特调</span><span class="menu-tag">必点</span></div>
+      </div>
+
+      <div class="menu-item fade-up" data-cat="special">
+        <div class="menu-item-header"><div class="menu-item-name">梅子冷萃</div><div class="menu-item-price">¥38</div></div>
+        <div class="menu-item-desc">肯尼亚冷萃 + 手工腌渍梅子露。酸甜交织，清爽解暑。夏季限定，售完即止。</div>
+        <div class="menu-item-tags"><span class="menu-tag">季节限定</span><span class="menu-tag">夏季</span></div>
+      </div>
+    </div>
+
+    <div class="menu-note fade-up">
+      <strong>📋 关于我们的豆子</strong><br>
+      所有单品豆 SCA 杯测评分 ≥ 84 分。豆单每季度更新，跟随全球产季。如果你在菜单上看到「售罄」标记，说明这一批豆子的风味巅峰期已经过了——我们宁可缺货，也不卖过了最佳赏味期的咖啡。
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div><div class="footer-brand">MOSA<span>COFFEE</span></div><p class="footer-desc">墨上咖啡，用一杯咖啡的时间抵达自己的精神角落。</p><div class="footer-social"><a href="#">红</a><a href="#">微</a><a href="#">IG</a><a href="#">评</a></div></div>
+      <div class="footer-col"><h4>导航</h4><a href="index.html">首页</a><a href="about.html">关于墨上</a><a href="menu.html">精品菜单</a><a href="courses.html">咖啡学院</a><a href="contact.html">预约体验</a></div>
+      <div class="footer-col"><h4>课程</h4><a href="courses.html">入门品鉴</a><a href="courses.html">手冲进阶</a><a href="courses.html">SCA 认证</a><a href="courses.html">企业团建</a></div>
+      <div class="footer-col"><h4>联系</h4><a href="contact.html">门店地址</a><a href="contact.html">在线预约</a><a href="contact.html">合作咨询</a><a href="#">加入我们</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2024 Mosa Coffee 墨上咖啡</span><span>京ICP备 2024XXXXXXXX号</span></div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>预约体验 | 墨上咖啡 Mosa Coffee</title>
+<meta name="description" content="预约墨上咖啡——在线预约课程、品鉴会或到店体验。北京三里屯，期待与你相遇。">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 6vw, 5rem); align-items: start; margin-top: 3rem; }
+  .info-card {
+    background: var(--white); border: 1px solid var(--brown-200);
+    padding: 2rem; margin-bottom: 1.5rem; transition: var(--transition);
+  }
+  .info-card:hover { border-color: var(--gold); }
+  .info-label { font-size: 0.7rem; letter-spacing:0.12em; color: var(--gold-dark); text-transform:uppercase; margin-bottom:0.4rem; font-weight:500; }
+  .info-value { color: var(--brown-900); font-size: 1rem; line-height: 1.8; }
+  .form-group { margin-bottom: 1.2rem; }
+  .form-group label { display:block; font-size:0.8rem; color: var(--text-secondary); margin-bottom:0.4rem; letter-spacing:0.04em; }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 0.9rem 1rem; border: 1px solid var(--brown-200);
+    background: var(--white); font-family: inherit; font-size: 0.95rem;
+    color: var(--text-primary); transition: var(--transition); resize: vertical;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(200,169,110,0.1);
+  }
+  .form-group textarea { min-height: 100px; }
+  .map-placeholder {
+    aspect-ratio: 16/9; max-height: 350px; margin-top: 3rem;
+    display:flex; align-items:center; justify-content:center;
+    font-size: 1.2rem; color: var(--brown-400);
+  }
+  @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">MOSA<span>COFFEE</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="about.html">关于墨上</a></li>
+      <li><a href="menu.html">精品菜单</a></li>
+      <li><a href="courses.html">咖啡学院</a></li>
+      <li><a href="contact.html" class="nav-cta active">预约体验</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle" aria-label="菜单"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-hero bg-coffee-texture" style="position:relative;">
+  <div class="page-hero-img" style="background-image: url('https://images.unsplash.com/photo-1463797221720-6b07e6426c24?w=1400&q=80&auto=format&fit=crop');"></div>
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-content">
+    <p class="hero-eyebrow fade-up">Visit Us</p>
+    <h1 class="heading-1 hero-title fade-up">来坐坐</h1>
+    <p class="hero-desc fade-up">水泥墙面，暖木桌椅，大面窗。够安静，够你喝完一杯。</p>
+  </div>
+</section>
+
+<section class="section" style="background:var(--white);">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <!-- 左侧：信息 -->
+      <div>
+        <div class="info-card fade-up">
+          <div class="info-label">📍 门店地址</div>
+          <div class="info-value">北京市朝阳区三里屯太古里南区 B1-12</div>
+          <div style="font-size:0.8rem;color:var(--text-muted);margin-top:0.5rem;">地铁路线：10号线团结湖站 D 口，步行 8 分钟</div>
+        </div>
+
+        <div class="info-card fade-up">
+          <div class="info-label">🕐 营业时间</div>
+          <div class="info-value">周一至周五 08:00 - 22:00<br>周末及节假日 09:00 - 23:00</div>
+        </div>
+
+        <div class="info-card fade-up">
+          <div class="info-label">📞 联系电话</div>
+          <div class="info-value">010-8855-1234</div>
+        </div>
+
+        <div class="info-card fade-up">
+          <div class="info-label">✉️ 电子邮箱</div>
+          <div class="info-value">hello@mosacoffee.cn<br><small style="color:var(--text-muted);">合作咨询、团体预约、媒体联系均可</small></div>
+        </div>
+
+        <div class="info-card fade-up">
+          <div class="info-label">💬 社交媒体</div>
+          <div class="info-value">
+            小红书：@墨上咖啡<br>
+            微信公众号：MosaCoffee<br>
+            大众点评：墨上咖啡 Mosa Coffee
+          </div>
+        </div>
+      </div>
+
+      <!-- 右侧：表单 -->
+      <div class="fade-up">
+        <div style="font-family:Georgia,serif;font-size:1.5rem;font-weight:600;color:var(--brown-900);margin-bottom:2rem;">在线预约</div>
+        <form id="contactForm">
+          <div class="form-group">
+            <label>预约类型 *</label>
+            <select required>
+              <option value="">请选择</option>
+              <option value="tasting">入门品鉴课 ¥298</option>
+              <option value="brewing">手冲进阶课 ¥580</option>
+              <option value="sca">SCA 认证课程 ¥3,980</option>
+              <option value="visit">到店体验（无需预约费）</option>
+              <option value="private">私人拼配定制</option>
+              <option value="other">其他咨询</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>姓名 *</label>
+            <input type="text" placeholder="您的称呼" required>
+          </div>
+          <div class="form-group">
+            <label>手机号 *</label>
+            <input type="tel" placeholder="我们会通过电话确认预约" required>
+          </div>
+          <div class="form-group">
+            <label>期望时间</label>
+            <input type="date">
+          </div>
+          <div class="form-group">
+            <label>备注</label>
+            <textarea placeholder="如有特殊需求（人数、时间偏好、私人定制要求等），请在此留言"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">提交预约</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- 地图区域 -->
+    <div class="map-placeholder img-placeholder-light has-img fade-up" style="margin-top:4rem; background-image: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1200&q=80&auto=format&fit=crop'); background-size:cover; background-position:center;">
+      <div style="text-align:center;position:relative;z-index:2;">
+        <div style="font-size:3rem;margin-bottom:1rem;">📍</div>
+        <div style="font-weight:500;">北京市朝阳区三里屯太古里南区 B1-12</div>
+        <div style="font-size:0.85rem;color:var(--text-muted);margin-top:0.5rem;">（正式上线后将嵌入高德地图）</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div><div class="footer-brand">MOSA<span>COFFEE</span></div><p class="footer-desc">墨上咖啡，用一杯咖啡的时间抵达自己的精神角落。</p><div class="footer-social"><a href="#">红</a><a href="#">微</a><a href="#">IG</a><a href="#">评</a></div></div>
+      <div class="footer-col"><h4>导航</h4><a href="index.html">首页</a><a href="about.html">关于墨上</a><a href="menu.html">精品菜单</a><a href="courses.html">咖啡学院</a><a href="contact.html">预约体验</a></div>
+      <div class="footer-col"><h4>课程</h4><a href="courses.html">入门品鉴</a><a href="courses.html">手冲进阶</a><a href="courses.html">SCA 认证</a><a href="courses.html">企业团建</a></div>
+      <div class="footer-col"><h4>联系</h4><a href="contact.html">门店地址</a><a href="contact.html">在线预约</a><a href="contact.html">合作咨询</a><a href="#">加入我们</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2024 Mosa Coffee 墨上咖啡</span><span>京ICP备 2024XXXXXXXX号</span></div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+<script src="js/main.js"></script>
+</body>
+</html>
