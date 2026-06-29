@@ -67,7 +67,48 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ===== 图片视差效果 =====
+  // ===== 图片懒加载 (CSS background-image) =====
+  const bgObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const src = el.dataset.src;
+        if (src) {
+          el.style.backgroundImage = `url(${src})`;
+          el.classList.add('has-img');
+          delete el.dataset.src;
+        }
+        obs.unobserve(el);
+      }
+    });
+  }, { rootMargin: '200px 0px' }); // 提前200px加载
+
+  document.querySelectorAll('[data-src]').forEach(el => bgObserver.observe(el));
+
+  // ===== 滚动进度条 =====
+  const progressBar = document.getElementById('progressBar');
+  if (progressBar) {
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement;
+      const pct = (window.scrollY / (h.scrollHeight - h.clientHeight)) * 100;
+      progressBar.style.width = Math.min(pct, 100) + '%';
+    }, { passive: true });
+  }
+
+  // ===== 按钮涟漪效果 (触摸反馈) =====
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.classList.add('ripple');
+  });
+
+  // ===== 预加载 Hero 区域图片 (首屏优先) =====
+  const heroImg = document.querySelector('.hero-bg');
+  if (heroImg) {
+    const bg = getComputedStyle(heroImg).backgroundImage;
+    if (bg && bg !== 'none') {
+      const img = new Image();
+      img.src = bg.replace(/url\(['"]?(.*?)['"]?\)/i, '$1');
+    }
+  }
   window.addEventListener('scroll', () => {
     const parallaxEls = document.querySelectorAll('.parallax');
     parallaxEls.forEach(el => {
